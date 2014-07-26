@@ -1,0 +1,174 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass";
+@import "modules";
+
+$fonts: 'Share Tech Mono', sans-serif;
+
+$bg-color: shade(#333, 40);
+$base-color: shade(#00b8b6, 0);
+$base-dark-color: shade(#333, 0);
+$base-highlight-color: shade(#fff, 0);
+$focus-color: shade(orange, 20);
+$focus-highlight-color: shade(orange, 0);
+
+$first-col-width: 140px;
+
+body {
+  background-image: url("../images/black-bg-1920x1200.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-color: $bg-color;
+  color: $base-color;
+  font-family: $fonts;
+  font-weight: 100;
+}
+
+a {
+  @include link-colors($base-color, $base-highlight-color);
+}
+
+.right {
+  float: right;
+}
+
+.focus {
+  color: $focus-color;
+  &:hover {
+    color: $focus-highlight-color !important;
+  }
+}
+
+@include keyframe(fadein) {
+  0% {
+    opacity: 0;
+    color: black;
+  }
+
+  100% {
+    opacity: 1;
+    color: $base-color;
+  }
+}
+
+@include keyframe(spin) {
+  0% {
+    @include rotate(0deg);
+  }
+  100% {
+    @include rotate(360deg); 
+  }
+}
+
+.fa {
+  cursor: pointer;
+  &:hover {
+    color: $base-highlight-color;
+  }
+}
+
+.spinnable {
+  @include infinite-animation(0, 4500ms, linear, spin);
+}
+
+.review {
+  width: 360px;
+  margin: auto;
+  padding: 40px 0;
+  @include animation(0, 3000ms, fadein);
+}
+
+.review .header-item {
+  font-size: 0.6em;
+  margin-bottom: 20px;
+}
+
+.review .item {
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: $base-highlight-color;
+  }
+
+  &:hover .percentage div {
+    background-color: $base-highlight-color;
+  }
+}
+
+.item .domain {
+  display: inline-block;
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+.bordered {
+  border: 1px solid $base-color;
+}
+
+.subitem {
+  display: inline-block;
+  color: $focus-color;
+  padding: 2px;
+  font-size: 0.6em;
+  width: $first-col-width;
+}
+
+.subitem-header {
+  display: inline-block;
+  background-color: $base-color;
+  color: $base-dark-color;
+  width: $first-col-width * 1.4;
+  padding: 2px;
+  font-size: 0.6em;
+}
+
+.percentage {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+}
+
+.percentage div {
+  height: 0.6em;
+  background-color: $base-color;
+}
+
+.percentage+span {
+  // position: absolute;
+  font-size: 0.6em;
+}
+
+@mixin panel-part {
+  display: inline-block;
+  position: relative;
+}
+
+.review-first {
+  @include panel-part;
+  width: $first-col-width;
+}
+
+.review-mid {
+  @include panel-part;
+  width: 100px;
+  padding-left: 5px;
+}
+
+.review-end {
+  @include panel-part;
+  width: 20%;
+  font-size: 0.8em;
+}

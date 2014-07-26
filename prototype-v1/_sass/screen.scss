@@ -1,0 +1,96 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass";
+
+$background-color: dark(#333, 50)
+$base-color: shade(#fff, 40);
+$base-highlight-color: #fff;
+$focus-color: shade(orange, 40);
+$focus-highlight-color: shade(orange, 20);
+
+body {
+  background-color: $background-color;
+  color: $base-color;
+}
+
+a {
+  @include link-colors($base-color, $base-highlight-color);
+}
+
+.focus {
+  color: $focus-color;
+  &:hover {
+    color: $focus-highlight-color !important;
+  }
+}
+
+.review {
+  width: 320px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.review .item {
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  &:hover img {
+    @include transition-duration(100ms);
+    @include scale(1.35);
+  }
+
+  &:hover {
+    color: $base-highlight-color;
+  }
+}
+
+.percentage {
+  span {
+    display: none;
+  }
+}
+
+.percentage:hover:before {
+  border-width: 3px;
+}
+
+.percentage:before {
+  content: '';
+  width: 90%;
+  height: 100%;
+  border-bottom: 1px solid shade(red, 40);
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 100ms;
+}
+
+@mixin panel-part {
+  display: inline-block;
+  position: relative;
+}
+
+.review-first {
+  @include panel-part;
+  width: 5%;
+}
+
+.review-mid {
+  @include panel-part;
+  width: 70%;
+  padding-left: 5px;
+}
+
+.review-end {
+  @include panel-part;
+  width: 20%;
+  font-size: 0.8em;
+}
