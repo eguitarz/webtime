@@ -3,7 +3,7 @@ require:
 - jekyll-compass
 project_path: /Users/eguitarz/Developer/webtime/
 http_path: /
-css_dir: prototype-v2/css
-sass_dir: prototype-v2/_sass
-images_dir: prototype-v2/images
+css_dir: v3/css
+sass_dir: v3/_sass
+images_dir: v3/images
 javascripts_dir: javascripts
