@@ -6,4 +6,5 @@ http_path: /
 css_dir: v3/css
 sass_dir: v3/_sass
 images_dir: v3/images
-javascripts_dir: javascripts
+fonts_dir: v3/fonts
+javascripts_dir: v3/javascripts

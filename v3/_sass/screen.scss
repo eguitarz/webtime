@@ -19,7 +19,6 @@ $focus-highlight-color: shade(orange, 0);
 $first-col-width: 140px;
 
 body {
-  background-image: url("../images/black-bg-1920x1200.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment:fixed;
@@ -47,12 +46,10 @@ a {
 @include keyframe(fadein) {
   0% {
     opacity: 0;
-    color: black;
   }
 
   100% {
     opacity: 1;
-    color: $base-color;
   }
 }
 
@@ -79,7 +76,7 @@ a {
 .review {
   width: 360px;
   margin: auto;
-  padding: 40px 0;
+  padding: 40px 20px;
   @include animation(0, 3000ms, fadein);
 }
 
@@ -91,13 +88,20 @@ a {
 .review .item {
   margin-bottom: 20px;
   cursor: pointer;
+  opacity: 0;
 
   &:hover {
-    color: $base-highlight-color;
+    color: $base-highlight-color !important;
   }
 
   &:hover .percentage div {
     background-color: $base-highlight-color;
+  }
+}
+
+@for $i from 2 through 4 {
+  .review .item:nth-child(#{$i}) {
+    @include animation(500ms + $i*300, 1000ms, fadein);
   }
 }
 

@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+
+  "name": "Jarvis Webtime",
+  "description": "A web time tracker extension designed in JARVIS (Just a Rather Very Intelligent System in Avenger / Iron man) style.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "index.html"
+  }
+}
