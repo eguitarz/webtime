@@ -99,9 +99,9 @@ a {
   }
 }
 
-@for $i from 2 through 4 {
+@for $i from 2 through 11 {
   .review .item:nth-child(#{$i}) {
-    @include animation(500ms + $i*300, 1000ms, fadein);
+    @include animation(500ms + $i*300, 500ms, fadein);
   }
 }
 
@@ -112,6 +112,11 @@ a {
   text-overflow: ellipsis;
   white-space: nowrap;
   vertical-align: middle;
+  font-size: 0.8em;
+}
+
+.time {
+  font-size: 0.8em;
 }
 
 .center {
@@ -142,7 +147,7 @@ a {
 .percentage {
   display: inline-block;
   position: relative;
-  width: 40px;
+  width: 50px;
 }
 
 .percentage div {
